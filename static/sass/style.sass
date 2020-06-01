@@ -152,13 +152,13 @@ input[type='range']::-webkit-slider-runnable-track
 	-webkit-appearance: none
 	color: #13bba4
 
-#myClip path
+#dayOverlayClip path
 	transition: transform 500ms
 
 .overlay
 	top: 0
 	position: absolute
-	clip-path: url(#myClip)
+	clip-path: url(#dayOverlayClip)
 	min-height: 400px
 	background-color: #51159b
 	width: 205px
@@ -184,24 +184,7 @@ input[type='range']::-webkit-slider-runnable-track
 	&:last-child
 		margin-bottom: 0
 
-.animation-icon
+.animation-wrapper
 	position: absolute
 	top: 0
 	right: 0
-
-.sun
-	-webkit-animation-name: spin
-	animation-name: spin
-
-@-webkit-keyframes
-	spin 
-		100% 
-			-webkit-transform: rotate(360deg)
-			transform: rotate(360deg)
-
-@keyframes 
-	spin 
-		100% 
-			-webkit-transform: rotate(360deg)
-			transform: rotate(360deg)
-

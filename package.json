@@ -12,10 +12,14 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
+    "autoprefixer": "^9.8.0",
     "compression": "^1.7.1",
     "moment": "^2.26.0",
+    "node-sass": "^4.14.1",
     "polka": "next",
-    "sirv": "^0.4.0"
+    "postcss": "^7.0.31",
+    "sirv": "^0.4.0",
+    "svelte-preprocess": "^3.7.4"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",

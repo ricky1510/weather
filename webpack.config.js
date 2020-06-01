@@ -2,22 +2,31 @@ const webpack = require('webpack');
 const path = require('path');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
+const postcss = require('postcss')
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 
 const alias = { 
-	svelte: path.resolve('node_modules', 'svelte'),
-	Components: path.resolve(__dirname, 'src/components/')
+	svelte: path.resolve('node_modules', 'svelte'), 
+	Components: path.resolve(__dirname, 'src/components/'), 
+	Stores: path.resolve(__dirname, 'src/stores/'), 
+	Locale: path.resolve(__dirname, 'src/locale/'),
+	Services: path.resolve(__dirname, 'src/services/')
 };
+
 const extensions = ['.mjs', '.js', '.json', '.svelte', '.html'];
 const mainFields = ['svelte', 'module', 'browser', 'main'];
 
 module.exports = {
+	mode: 'production',
 	client: {
 		entry: config.client.entry(),
 		output: config.client.output(),
 		resolve: { alias, extensions, mainFields },
+		node: {
+			fs: 'empty'
+		},
 		module: {
 			rules: [
 				{
@@ -25,6 +34,11 @@ module.exports = {
 					use: {
 						loader: 'svelte-loader',
 						options: {
+							preprocess: require('svelte-preprocess')({
+								postcss: {
+									plugins: [require('autoprefixer')({ overrideBrowserslist: 'last 2 versions' })],
+								}
+							}),
 							dev,
 							hydratable: true,
 							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
@@ -49,6 +63,9 @@ module.exports = {
 		entry: config.server.entry(),
 		output: config.server.output(),
 		target: 'node',
+		node: {
+			fs: 'empty'
+		},
 		resolve: { alias, extensions, mainFields },
 		externals: Object.keys(pkg.dependencies).concat('encoding'),
 		module: {
@@ -59,6 +76,11 @@ module.exports = {
 						loader: 'svelte-loader',
 						options: {
 							css: false,
+							preprocess: require('svelte-preprocess')({
+								postcss: {
+									plugins: [require('autoprefixer')({ overrideBrowserslist: 'last 2 versions' })],
+								}
+							}),
 							generate: 'ssr',
 							dev
 						}
