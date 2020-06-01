@@ -265,7 +265,7 @@
 		let timer = setInterval(function() {
 			current += increment;
 			celcius = current;	
-			if (current == end) {
+			if (current == end || current <= 0) {
 				clearInterval(timer);
 			}
 		}, stepTime);
