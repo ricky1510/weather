@@ -15,7 +15,7 @@ body {
   background-color: #fff;
   border-radius: 20px;
   overflow: hidden; }
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 800px) {
     #sapper {
       display: none; } }
 
@@ -255,7 +255,7 @@ input[type='range']::-webkit-slider-runnable-track {
   font-size: 30px;
   width: 100%;
   max-width: 300px; }
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 800px) {
     .desktop-only {
       display: block;
       text-align: center; } }
