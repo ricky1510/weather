@@ -3,7 +3,8 @@
 Little project I did for a job interview assignment:
 
 
-Weather Widget
+## Assignment description
+
 Create a weather widget for use in the webbrowser that provides us with a weather forecast.
 
 We've included an 'icons' folder for your use.

@@ -15,6 +15,9 @@ body {
   background-color: #fff;
   border-radius: 20px;
   overflow: hidden; }
+  @media screen and (max-width: 750px) {
+    #sapper {
+      display: none; } }
 
 .days__wrapper {
   display: -webkit-box;
@@ -245,3 +248,14 @@ input[type='range']::-webkit-slider-runnable-track {
   position: absolute;
   top: 0;
   right: 0; }
+
+.desktop-only {
+  display: none;
+  margin: auto;
+  font-size: 30px;
+  width: 100%;
+  max-width: 300px; }
+  @media screen and (max-width: 750px) {
+    .desktop-only {
+      display: block;
+      text-align: center; } }
