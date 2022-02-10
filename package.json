@@ -15,7 +15,7 @@
     "autoprefixer": "^9.8.0",
     "compression": "^1.7.1",
     "moment": "^2.26.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "polka": "next",
     "postcss": "^7.0.31",
     "sirv": "^0.4.0",
